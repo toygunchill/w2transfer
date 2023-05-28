@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FinanceCell" customModule="algel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="83"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="405" height="83"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzD-Rn-8cK">
+                        <rect key="frame" x="0.0" y="0.0" width="405" height="83"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25,57 TL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EH8-bp-pOD">
+                                <rect key="frame" x="325.33333333333331" y="31.333333333333336" width="66.666666666666686" height="20.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alındığı - Bırakıldığı Adres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX7-De-Cj9">
+                                <rect key="frame" x="13" y="10" width="194" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ürün Tipi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRi-fA-5W5">
+                                <rect key="frame" x="13" y="33.666666666666664" width="59" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katedilen mesafe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NX-Yx-xMP">
+                                <rect key="frame" x="12.999999999999993" y="53" width="111.33333333333331" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9NX-Yx-xMP" firstAttribute="leading" secondItem="gzD-Rn-8cK" secondAttribute="leading" constant="13" id="221-85-0yp"/>
+                            <constraint firstAttribute="trailing" secondItem="EH8-bp-pOD" secondAttribute="trailing" constant="13" id="83u-xi-chL"/>
+                            <constraint firstItem="OX7-De-Cj9" firstAttribute="top" secondItem="gzD-Rn-8cK" secondAttribute="top" constant="10" id="DHr-v1-XK8"/>
+                            <constraint firstItem="9NX-Yx-xMP" firstAttribute="top" secondItem="JRi-fA-5W5" secondAttribute="bottom" constant="2.5" id="F8d-3c-q8C"/>
+                            <constraint firstItem="JRi-fA-5W5" firstAttribute="leading" secondItem="gzD-Rn-8cK" secondAttribute="leading" constant="13" id="HBA-le-XcC"/>
+                            <constraint firstItem="OX7-De-Cj9" firstAttribute="leading" secondItem="gzD-Rn-8cK" secondAttribute="leading" constant="13" id="cHg-6V-o4n"/>
+                            <constraint firstItem="EH8-bp-pOD" firstAttribute="centerY" secondItem="gzD-Rn-8cK" secondAttribute="centerY" id="ttC-rg-vHf"/>
+                            <constraint firstItem="JRi-fA-5W5" firstAttribute="top" secondItem="OX7-De-Cj9" secondAttribute="bottom" constant="2.5" id="ujp-n4-1pZ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="gzD-Rn-8cK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="F1S-bR-rvC"/>
+                <constraint firstAttribute="trailing" secondItem="gzD-Rn-8cK" secondAttribute="trailing" id="dkh-dc-0ep"/>
+                <constraint firstItem="gzD-Rn-8cK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eXO-no-GSp"/>
+                <constraint firstAttribute="bottom" secondItem="gzD-Rn-8cK" secondAttribute="bottom" id="pgP-UG-uat"/>
+            </constraints>
+            <size key="customSize" width="528" height="83"/>
+            <connections>
+                <outlet property="adressLabel" destination="OX7-De-Cj9" id="ydh-PO-rOf"/>
+                <outlet property="amountLabel" destination="EH8-bp-pOD" id="wg1-qg-1cI"/>
+                <outlet property="financeBackgroundView" destination="gzD-Rn-8cK" id="hqY-p3-hcu"/>
+                <outlet property="productTypeLabel" destination="JRi-fA-5W5" id="izn-6q-U0K"/>
+                <outlet property="takenRoadLabel" destination="9NX-Yx-xMP" id="2gL-AH-YgT"/>
+            </connections>
+            <point key="canvasLocation" x="254.19847328244273" y="22.183098591549296"/>
+        </collectionViewCell>
+    </objects>
+</document>
