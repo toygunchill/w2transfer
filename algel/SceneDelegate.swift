@@ -49,7 +49,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-
 }
 
+extension UIApplication {
+    class func restartApplication() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            if let windowDelegate = windowScene.delegate as? SceneDelegate {
+                windowDelegate.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+            }
+        }
+    }
+}
+
+//    class func restartApplication() {
+//        guard let appDelegate = UIApplication.shared.delegate else {
+//            return
+//        }
+//
+//        if let sceneDelegate = appDelegate.window??.windowScene?.delegate as? SceneDelegate {
+//            sceneDelegate.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+//            sceneDelegate.window?.makeKeyAndVisible()
+//        }
+//
+//        exit(0)
+//    }
+//}

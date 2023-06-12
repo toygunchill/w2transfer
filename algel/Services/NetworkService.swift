@@ -300,16 +300,80 @@ class NetworkService {
     
     //MARK: - All VC Order State Update
     
-    func postOrderStateUpdate(orderID: String?,
-                              active: String?, completion: @escaping(Result<String,AFError>) -> Void) {
+//    func postOrderStateUpdate(orderID: String?,
+//                              active: String?, completion: @escaping(Result<String,AFError>) -> Void) {
+//        if let orderID = orderID,
+//           let active = active {
+//            let parameters: [String: Any] = [
+//                "order-id": orderID,
+//                "active": active
+//            ]
+//
+//            let url = "https://kouiot.com/toygun/order-state-set.php"
+//            let headers: HTTPHeaders = ["Content-Type": "application/json-rpc"]
+//
+//            AF.request(url, method: .post,
+//                       parameters: parameters,
+//                       encoding: JSONEncoding.default,
+//                       headers: headers)
+//            .responseString { response in
+//                completion(response.result)
+//            }
+//        }
+//    }
+    
+    //MARK: - All VC Drop-Check
+    
+    func postDropCheck(orderID: String?,
+                       transporterID: String?,
+                       userID: String?, completion: @escaping(Result<String,AFError>) -> Void) {
+        let url = "https://kouiot.com/toygun/drop-check.php"
+        let headers: HTTPHeaders = ["Content-Type": "application/json-rpc"]
+        
+        if let orderID = orderID {
+            if transporterID != nil {
+                if let userID = transporterID {
+                    let parameters: [String: Any] = [
+                        "order-id": orderID,
+                        "transporter-id": userID,
+                    ]
+                    AF.request(url, method: .post,
+                               parameters: parameters,
+                               encoding: JSONEncoding.default,
+                               headers: headers)
+                    .responseString { response in
+                        completion(response.result)
+                    }
+                }
+            } else if userID != nil {
+                if let userID = userID {
+                    let parameters: [String: Any] = [
+                        "order-id": orderID,
+                        "user-id": userID,
+                    ]
+                    AF.request(url, method: .post,
+                               parameters: parameters,
+                               encoding: JSONEncoding.default,
+                               headers: headers)
+                    .responseString { response in
+                        completion(response.result)
+                    }
+                }
+            }
+        }
+    }
+    
+    func postTransportState(orderID: String?,
+                            transporterID: String?,
+                            completion: @escaping (Result<String,AFError>) -> Void) {
         if let orderID = orderID,
-           let active = active {
+           let transporterID = transporterID {
             let parameters: [String: Any] = [
                 "order-id": orderID,
-                "active": active
+                "transporter-id": transporterID
             ]
             
-            let url = "https://kouiot.com/toygun/order-state-set.php"
+            let url = "https://kouiot.com/toygun/transport-state.php"
             let headers: HTTPHeaders = ["Content-Type": "application/json-rpc"]
             
             AF.request(url, method: .post,
@@ -321,5 +385,52 @@ class NetworkService {
             }
         }
     }
-
+    
+    func getTransportList(orderID: String?,
+                          completion: @escaping (Result<String,AFError>) -> Void) {
+        if let orderID = orderID {
+            let parameters: [String: Any] = [
+                "order-id": orderID,
+            ]
+            
+            let url = "https://kouiot.com/toygun/transport-state-list.php"
+            let headers: HTTPHeaders = ["Content-Type": "application/json-rpc"]
+            
+            AF.request(url, method: .post,
+                       parameters: parameters,
+                       encoding: JSONEncoding.default,
+                       headers: headers)
+            .responseString { response in
+                completion(response.result)
+            }
+        }
+    }
+    
+    //MARK: - UserDetail
+    func getUserDetail(userID: String,
+                       completion: @escaping (Result<UserDetailResponse,AFError>) -> Void) {
+        let parameters: [String: Any] = [
+            "user-id": userID,
+        ]
+        
+        let url = "https://kouiot.com/toygun/user-detail.php"
+        let headers: HTTPHeaders = ["Content-Type": "application/json-rpc"]
+        
+        AF.request(url, method: .post,
+                   parameters: parameters,
+                   encoding: JSONEncoding.default,
+                   headers: headers).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let value = try JSONDecoder().decode(UserDetailResponse.self, from: data)
+                    completion(.success(value))
+                } catch {
+                    completion(.failure(.responseSerializationFailed(reason: .decodingFailed(error: error))))
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
