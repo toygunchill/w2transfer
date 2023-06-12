@@ -174,20 +174,33 @@ class RegisterViewController: UIViewController {
 extension RegisterViewController: UITextFieldDelegate {
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let characterSet = CharacterSet(charactersIn: "0123456789")
-        guard let text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) else {
-            return true
-        }
-        if text.rangeOfCharacter(from: characterSet.inverted) != nil {
-            return false
-        }
         let maxLength: Int
         if textField == phoneTf {
+            let characterSet = CharacterSet(charactersIn: "0123456789")
+            guard let text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) else {
+                return true
+            }
+            if text.rangeOfCharacter(from: characterSet.inverted) != nil {
+                return false
+            }
             maxLength = 10
         } else if textField == fpassTf {
+            let characterSet = CharacterSet(charactersIn: "0123456789")
+            guard let text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) else {
+                return true
+            }
+            if text.rangeOfCharacter(from: characterSet.inverted) != nil {
+                return false
+            }
             maxLength = 6
         } else if textField == spassTf {
+            let characterSet = CharacterSet(charactersIn: "0123456789")
+            guard let text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) else {
+                return true
+            }
+            if text.rangeOfCharacter(from: characterSet.inverted) != nil {
+                return false
+            }
             maxLength = 6
         } else {
             maxLength = 50

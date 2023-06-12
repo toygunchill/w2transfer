@@ -262,18 +262,6 @@ class HomeViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-//    func setUserData(order: OrderListResponseElement,completion: @escaping() -> Void) {
-//        self.viewModel.getUserDetail(userID: order.userID) { value in
-//            let name = "\(value[0].name) \(value[0].surname)"
-//            self.ownerNameLbl.text = name
-//            if value[0].gender == "0" {
-//                self.ownerIV.image = UIImage(named: "Users")
-//            } else {
-//                self.ownerIV.image = UIImage(named: "")
-//            }
-//            completion()
-//        }
-//    }
 }
 
 extension HomeViewController: MKMapViewDelegate, CLLocationManagerDelegate {
